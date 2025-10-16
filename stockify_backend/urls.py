@@ -16,6 +16,3 @@ urlpatterns = [
     path('api/products/', ProductListView.as_view()),
     path('', include(router.urls)),
 ]
-# 15-10   Tengo el get, ahora falta el post y las validaciones de nombre unico
-
-#16-10    Lo anterior no servía tuve que cambiar todo
