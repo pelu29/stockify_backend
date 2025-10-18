@@ -6,3 +6,9 @@ productos_simulados = [
     {"nombre": "Chocolate", "categoria": "Snack", "precio": 3.0},
     {"nombre": "Jugo", "categoria": "Bebidas", "precio": 5.0}
 ]
+
+# categorias_simuladas = [
+#     {"nombre": "Bebidas", "descripcion": "Consumibles liquidos", "activo": True},
+#     {"nombre": "Alimentos", "descripcion": "Consumibles solidos", "activo": True},
+#     {"nombre": "Snacks", "descripcion": "Consumibles pequeños", "activo": True}
+# ]
