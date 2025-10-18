@@ -1,12 +1,8 @@
 from rest_framework import viewsets
-from .models import Productos
-from .serializers import ProductosSerializer
-from rest_framework.views import APIView
+from .models import Productos,Categorias
+from .serializers import ProductosSerializer, CategoriaSerializer
 from rest_framework.response import Response
 from rest_framework import viewsets
-
-from .models import Categorias
-from .serializers import CategoriaSerializer
 
     
 class CategoriaViewSet(viewsets.ModelViewSet):
