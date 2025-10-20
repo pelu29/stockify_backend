@@ -1,2 +1,11 @@
+# usuarios/urls.py
+from .views import ClienteViewSet
 from django.urls import path,include
-from rest_framework.routers import DefaultRouter
+
+cliente_register = ClienteViewSet.as_view({'post': 'create'})
+
+urlpatterns = [
+    path('register/', cliente_register, name='cliente-register'),
+]
+
+
