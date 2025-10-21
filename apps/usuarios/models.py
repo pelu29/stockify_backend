@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class Clientes(AbstractUser):
-    negocio_id = models.ForeignKey(
+    negocio = models.ForeignKey(
         'negocios.Negocios',
         on_delete=models.CASCADE,
         related_name='clientes'

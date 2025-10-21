@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.urls import path, include 
-from apps.inventario.views import ProductListView
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView
@@ -9,7 +8,7 @@ from rest_framework_simplejwt.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/inventario/productos/', ProductListView.as_view()),
+    path('api/inventario/',include('apps.inventario.urls')),
     path('api/usuarios/', include('apps.usuarios.urls')),
     path('api/token/',TokenObtainPairView.as_view(),name='token_obtain_pair'),
     path('api/token/refresh/',TokenRefreshView.as_view(),name='token_refresh'),
