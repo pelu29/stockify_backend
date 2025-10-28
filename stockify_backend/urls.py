@@ -10,6 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/inventario/',include('apps.inventario.urls')),
     path('api/usuarios/', include('apps.usuarios.urls')),
+    path('api/negocios/',include('apps.negocios.urls')),
     path('api/token/',TokenObtainPairView.as_view(),name='token_obtain_pair'),
     path('api/token/refresh/',TokenRefreshView.as_view(),name='token_refresh'),
 ]
