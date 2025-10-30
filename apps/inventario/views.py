@@ -4,7 +4,7 @@ from .serializers import ProductosSerializer, CategoriaSerializer, AlertaSeriali
 from rest_framework.response import Response
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
-
+from apps.inventario.pagination import CustomPagination
     
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categorias.objects.all()
@@ -12,8 +12,9 @@ class CategoriaViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
 class ProductosViewSet(viewsets.ModelViewSet):
-    queryset = Productos.objects.all()
+    queryset = Productos.objects.order_by('pk')
     serializer_class = ProductosSerializer
+    pagination_class = CustomPagination
 
 class AlertasViewSet(viewsets.ModelViewSet):
     queryset = Alertas.objects.all()
