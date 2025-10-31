@@ -11,10 +11,13 @@ class Categorias(models.Model):
 
 class Productos(models.Model):
     negocio_id = models.ForeignKey(
-        Negocios,
-        on_delete=models.CASCADE,
-        related_name='negocio'
-    )
+    Negocios,
+    on_delete=models.SET_NULL,
+    related_name='negocio',
+    null=True,
+    blank=True
+)
+
     codigo = models.CharField(max_length=100,unique=True)
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
