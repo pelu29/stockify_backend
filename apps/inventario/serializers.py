@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-from .models import Productos, Categorias, Negocios
+from .models import Productos, Categorias, Alertas
 
 class CategoriaSerializer(serializers.ModelSerializer):
     nombre = serializers.CharField(
@@ -22,3 +22,8 @@ class ProductosSerializer(serializers.ModelSerializer):
             'precio': {'min_value': 0},
             'stock': {'min_value': 0},
         }
+
+class AlertaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Alertas
+        fields = '__all__'

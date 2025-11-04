@@ -3,5 +3,5 @@ from .models import Negocios
 
 class NegociosSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Negocios
         fields = '__all__'
+        model = Negocios
