@@ -1,0 +1,1 @@
+web: gunicorn stockify_backend.wsgi
