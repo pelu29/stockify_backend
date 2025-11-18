@@ -1,17 +1,13 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import CategoriaViewSet, ProductosViewSet, reporte_stock
+from .views import CategoriaViewSet, ProductosViewSet
 
 router = DefaultRouter()
-router.register(r'categories', CategoriaViewSet, basename='categories')
-router.register(r'products', ProductosViewSet, basename='products')
+router.register(r'categorias', CategoriaViewSet, basename='categorias')
+router.register(r'productos', ProductosViewSet, basename='productos')
 
-# ✅ Aquí separamos las rutas manuales
-manual_urls = [
-    path('reports/stock/', reporte_stock, name='reporte_stock'),
-]
 
 # ✅ Unimos ambas listas de rutas
-urlpatterns = manual_urls + [
+urlpatterns = [
     path('', include(router.urls)),
 ]
