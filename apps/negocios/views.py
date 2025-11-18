@@ -8,4 +8,3 @@ from rest_framework.permissions import IsAuthenticated
 class NegociosViewSet(viewsets.ModelViewSet):
     queryset = Negocios.objects.all()
     serializer_class = NegociosSerializer
-    permission_classes = [IsAuthenticated]
