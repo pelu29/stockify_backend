@@ -10,12 +10,6 @@ from django.http import HttpResponse
 from apps.negocios.models import Negocios
 from apps.negocios.serializers import NegociosSerializer
 
-# 📦 Reporte CSV y PDF
-import pandas as pd
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
-import io
-
 # 🧩 ViewSets
 class NegociosViewSet(viewsets.ModelViewSet):
     queryset = Negocios.objects.all()
