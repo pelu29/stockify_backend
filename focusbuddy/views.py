@@ -1,21 +1,8 @@
-from rest_framework import viewsets
-from .models import Negocios
-from .serializers import NegociosSerializer
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from langchain_core.messages import HumanMessage
-from .agents import focusbuddy_agent
-
-
-# Create your views here.
-
-class NegociosViewSet(viewsets.ModelViewSet):
-    queryset = Negocios.objects.all()
-    serializer_class = NegociosSerializer
-
-
+from .agent import focusbuddy_agent
 
 class FocusBuddyView(APIView):
     def post(self, request):
