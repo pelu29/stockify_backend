@@ -22,5 +22,4 @@ class ClienteViewSet(viewsets.ModelViewSet):
             samesite="Strict",
             max_age=3600,
         )
-        
-        super().create(request, *args, **kwargs)
+        return response
