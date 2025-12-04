@@ -5,6 +5,8 @@ from .models import Clientes
 from .serializers import ClienteSerializer
 import jwt
 import datetime
+from rest_framework.permissions import IsAuthenticated
+from django.http import JsonResponse
 
 class ClienteViewSet(viewsets.ModelViewSet):
     queryset = Clientes.objects.all()
@@ -24,13 +26,25 @@ class ClienteViewSet(viewsets.ModelViewSet):
         response = JsonResponse({"message": "Login correcto"})
 
         # --- Cookie segura ---
+    def create(request,*args, **kwargs):
+        token = "mi_super_jwt"
+        
+        response = JsonResponse({"message": "Login correcto"})
+
         response.set_cookie(
             key="access_token",
             value=token,
             httponly=True,
+          
             secure=True,      # en producción debe estar activado
             samesite="Strict",  
             max_age=3600,     # 1 hora
         )
 
         return response   # <<< IMPORTANTE
+  
+            secure=True,
+            samesite="Strict",
+            max_age=3600,
+        )
+        return response
