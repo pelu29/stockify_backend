@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "corsheaders",
+    'apps.usuarios',
+    #'apps.inventario',
+    'apps.ventas',  #Agregado el modulo de ventas para que el proyecto pueda funcionar
     'apps.inventario',
     'apps.negocios',
     'apps.usuarios',
@@ -90,6 +93,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'stockify_backend.wsgi.application'
 
+
 # Database: SOLO SQLite local
 DATABASES = {
     "default": {
@@ -97,6 +101,28 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+# Database
+# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+#DATABASES = {
+#    'default': dj_database_url.config(
+#        default='sqlite:///db.sqlite3'
+#    )
+#}
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+    }
+}
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
