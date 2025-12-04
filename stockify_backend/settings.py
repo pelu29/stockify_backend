@@ -11,6 +11,9 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Cargar el archivo DB.env desde la raíz del proyecto
+load_dotenv(os.path.join(BASE_DIR, '.env'))
+
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-b#thh$ws&!uowr1ri#80ns1t9$u60)-y82o@nsgt_e(8y+s*m6")
 
@@ -50,6 +53,9 @@ INSTALLED_APPS = [
     'apps.ventas',  #Agregado el modulo de ventas para que el proyecto pueda funcionar
     'apps.inventario',
     'apps.negocios',
+    'apps.ordenes',
+    'rest_framework'
+
     'apps.usuarios',
     'apps.ventas',
     'rest_framework',

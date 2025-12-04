@@ -7,6 +7,8 @@ from rest_framework_simplejwt.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/inventario/', include('apps.inventario.urls')),
+    path('api/ordenes/', include('apps.ordenes.urls')),
     #path('api/', include('apps.inventario.urls')),  # ✅ NO uses 'api/inventario/'
     path('api/usuarios/', include('apps.usuarios.urls')),
     path('api/negocios/',include('apps.negocios.urls')),
