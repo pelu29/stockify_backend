@@ -3,8 +3,8 @@ from rest_framework.routers import DefaultRouter
 from .views import CategoriaViewSet, ProductosViewSet
 
 router = DefaultRouter()
-router.register(r'categories', CategoriaViewSet, basename='categories')
-router.register(r'products', ProductosViewSet, basename='products')
+router.register(r'categorias', CategoriaViewSet, basename='categorias')
+router.register(r'productos', ProductosViewSet, basename='productos')
 
 # ✅ Aquí separamos las rutas manuales
 manual_urls = [
@@ -12,6 +12,6 @@ manual_urls = [
 ]
 
 # ✅ Unimos ambas listas de rutas
-urlpatterns = manual_urls + [
+urlpatterns = [
     path('', include(router.urls)),
 ]

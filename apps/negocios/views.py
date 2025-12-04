@@ -1,6 +1,12 @@
 from rest_framework import viewsets, status
 from .models import Negocios
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from langchain_core.messages import HumanMessage
+from .agents import focusbuddy_agent
+
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -17,6 +23,23 @@ from .agente5 import graph
 class NegociosViewSet(viewsets.ModelViewSet):
     queryset = Negocios.objects.all()
     serializer_class = NegociosSerializer
+
+
+
+class FocusBuddyView(APIView):
+    def post(self, request):
+        user_input = request.data.get("message")
+        if not user_input:
+            return Response({"error": "Falta el campo 'message'"}, status=status.HTTP_400_BAD_REQUEST)
+
+        respuesta = focusbuddy_agent.invoke(
+            {"messages": [HumanMessage(content=user_input)]},
+            config={"configurable": {"thread_id": "session_1"}}
+        )
+
+        output = [msg.content for msg in respuesta["messages"]]
+        return Response({"reply": output})
+
     permission_classes = [IsAuthenticated]
 
 @csrf_exempt
@@ -65,7 +88,6 @@ class AgenteWellnessBot(viewsets.ModelViewSet):
             if response_data.is_valid():
                 return Response(response_data.data, status=status.HTTP_200_OK)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 
 
