@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.usuarios',
+    'apps.ventas',  #Agregado el modulo de ventas para que el proyecto pueda funcionar
     'apps.inventario',
     'apps.negocios',
     'rest_framework',
