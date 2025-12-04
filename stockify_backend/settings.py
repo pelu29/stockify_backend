@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-b#thh$ws&!uowr1ri#80ns1t9$u60)-y82o@nsgt_e(8y+s*m6
 DEBUG = os.getenv("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = ["*", ".onrender.com"]
-
+    
 
 # Application definition
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.usuarios',
+    'apps.ventas',
     'apps.inventario',
     'apps.negocios',
     'rest_framework',
