@@ -55,10 +55,6 @@ INSTALLED_APPS = [
     'apps.negocios',
     'apps.ordenes',
     'rest_framework'
-
-    'apps.usuarios',
-    'apps.ventas',
-    'rest_framework',
 ]
 
 REST_FRAMEWORK = {
