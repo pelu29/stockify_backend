@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Venta
+from .models import Venta, Ordenes
 
 class VentaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,3 +20,8 @@ class VentaSerializer(serializers.ModelSerializer):
         # El total se recalcula automáticamente en el método save del modelo
         instance.save()
         return instance
+    
+class OrdenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ordenes
+        fields = '__all__'

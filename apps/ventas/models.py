@@ -18,3 +18,9 @@ class Venta(models.Model):
 
     def __str__(self):
         return f"Venta de {self.cantidad} de {self.producto.nombre} por {self.total}"
+
+class Ordenes(models.Model):
+    negocio = models.ForeignKey(Negocios, on_delete=models.CASCADE, related_name="negocio_ordenes")
+    producto = models.ForeignKey(Productos, on_delete=models.CASCADE, related_name="producto_ordenes")
+    precio = models.IntegerField()
+    fecha = models.DateTimeField(auto_now_add=True)
