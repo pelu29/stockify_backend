@@ -10,7 +10,7 @@ class ClienteViewSet(viewsets.ModelViewSet):
     queryset = Clientes.objects.all()
     serializer_class = ClienteSerializer
 
-    def create(request, *args, **kwargs):
+    def create(self, request, *args, **kwargs): #Agregado self como primer parametro
         token = "mi_super_jwt"
 
         response = JsonResponse({"message": "Login correcto"})
@@ -26,4 +26,4 @@ class ClienteViewSet(viewsets.ModelViewSet):
 
         super().create(request, *args, **kwargs)
 
-    
+        return response #agregado para fines de prueba
