@@ -112,13 +112,13 @@ WSGI_APPLICATION = 'stockify_backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-DATABASES = {
-    "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL"),
-        conn_max_age=600,
-        ssl_require=True
-    )
-}
+# DATABASES = {
+#     "default": dj_database_url.config(
+#         default=os.getenv("DATABASE_URL"),
+#         conn_max_age=600,
+#         ssl_require=True
+#     )
+# }
 
 # DATABASES = {
 #     'default': {
@@ -131,6 +131,13 @@ DATABASES = {
 #     }
 # }
 
+DATABASES = {   # agregada base de datos sqlite con fines de prueba
+    "default": dj_database_url.config(
+        default="sqlite:///db.sqlite3",  # fallback seguro
+        conn_max_age=600,
+        ssl_require=False  # solo pon True si tu DB requiere SSL
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
