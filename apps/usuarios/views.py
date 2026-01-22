@@ -5,5 +5,6 @@ from .serializers import ClienteSerializer
 from rest_framework.permissions import IsAuthenticated
 
 class ClienteViewSet(viewsets.ModelViewSet):
-    queryset = Clientes.objects.all()
+    queryset = Clientes.objects.all().order_by('id')
+
     serializer_class = ClienteSerializer
