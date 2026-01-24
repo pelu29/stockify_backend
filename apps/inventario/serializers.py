@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-from .models import Productos, Categorias, Alertas
+from apps.inventario.models import Productos, Categorias, Alertas
 
 class CategoriaSerializer(serializers.ModelSerializer):
     nombre = serializers.CharField(

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
-from .models import Clientes
+from apps.usuarios.models import Clientes
 
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:

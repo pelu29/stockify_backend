@@ -16,7 +16,7 @@ class NegociosViewSet(viewsets.ModelViewSet):
     serializer_class = NegociosSerializer
 
 
-from .models import Productos,Categorias, Alertas
+from apps.inventario.models import Productos,Categorias, Alertas
 from .serializers import ProductosSerializer, CategoriaSerializer, AlertaSerializer
 from rest_framework.response import Response
 from rest_framework import viewsets
