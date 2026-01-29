@@ -91,7 +91,6 @@ class ProductoTests(APITestCase):
     def test_delete_producto(self):
         url_detail = reverse("productos-detail", args=[self.producto.id])
         response = self.client.delete(url_detail)
-        print("\nResponse = ",response.close)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertFalse(Productos.objects.filter(id=self.producto.id).exists())
 
